@@ -69,6 +69,7 @@
             font-size: 1.6rem;
             font-family: var(--font-primary);
             background: var(--color-gray-1);
+            color: var(--color-dark-text)
         }
 
         h1,
@@ -176,7 +177,58 @@
 
         .comand-list-item:hover{
             transform: scale(1.02);
+            box-shadow: -8px 8px 18px rgba(0, 0, 0, .25);
         }
+
+        .comand-title-container{
+            padding: var(--spacing-gutter-medium);
+            padding-bottom: calc(var(--spacing-gutter-medium)/2);
+        }
+
+        .comand-definition-container{
+            text-align: justify;
+            padding-left: var(--spacing-gutter-medium);
+            padding-right: var(--spacing-gutter-medium);
+        }
+
+        .comand-author{
+            text-align: right;
+            padding-left: var(--spacing-gutter-medium);
+            padding-right: var(--spacing-gutter-medium);
+            padding-top: calc(var(--spacing-gutter-medium)/2);
+            padding-bottom: calc(var(--spacing-gutter-medium)/2);
+            color: var(--color-gray-4);            
+        }
+        .comand-date {
+            text-align: right;
+            padding-left: var(--spacing-gutter-medium);
+            padding-right: var(--spacing-gutter-medium);
+            padding-top: 0;
+            padding-bottom: calc(var(--spacing-gutter-medium)/2);
+            color: var(--color-gray-4);
+        }
+
+        .comand-author a {
+            color: var(--color-gray-4);  
+            transition: all 300ms ease-in-out;     
+            text-decoration: none;     
+        }
+
+        .comand-author a:hover {
+            color: var(--color-primary-dark);            
+        }
+
+        .comand-title a{
+            color: var(--color-primary-dark);  
+            transition: all 300ms ease-in-out;     
+            text-decoration: none;
+        }
+
+        .comand-title a:hover{
+            color: var(--color-gray-5);
+        }
+
+
 
         
     </style>
