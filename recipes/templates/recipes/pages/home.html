@@ -1,17 +1,21 @@
 {% include 'recipes/partial/head.html' %}
 
 <body>
-    {% include 'recipes/partial/header.html' %} 
+    {% include 'recipes/partial/header.html' %}
 
-    <div class= "search-container">
-        <div class="container">
-            <form action="" class="search-form">
-                <input type="search" class= "search-input" name="search">
-                <button type="submit" class= "search-button">
-                    <i class= "fas fa-search"></i>
-                </button>
-            </form>
+    {% include 'recipes/partial/search.html' %}
+
+    <main class="main-content-container">
+        <div class="main-content main-content-list container">
+            <div class="comand comand-list-item">
+                <div class="comand-cover">
+                    <img src="https://via.placeholder.com/1280x720.png/269fe6" alt="Temporário">
+                </div>
+                <h1>OI</h1>
+            </div>
         </div>
-    </div>
+
+    </main>
+
 </body>
 </html>
