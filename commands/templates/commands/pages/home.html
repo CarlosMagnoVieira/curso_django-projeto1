@@ -5,49 +5,19 @@
 
     {% include 'commands/partial/search.html' %}
 
+    
+
     <main class="main-content-container">
         <div class="main-content main-content-list container">
-            <div class="command command-list-item">
-                <div class="command-cover">
-                    <img src="https://via.placeholder.com/1280x720.png/269fe6" alt="Temporário">
-                </div>
-                <div class="command-title-container">
-                    <h2 class="command-title"> Linguagem: <a href="">(nome da linguagem de programação)</a></h2>
-                    <h2 class="command-title"> Comando: <a href="" >(nome do comando)</a></h2>
-                </div>
-                <div class="command-definition-container">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est aliquam deleniti ex, iure incidunt rem blanditiis laudantium quod nobis soluta qui vero corporis amet excepturi placeat consequuntur quia tenetur animi.</p>
-                </div>
-                <div class="command-sintaxe-container">
-                    <h3> <i class="fas fa-code"> </i> Sintaxe:</h3> 
-                    <p class="command-sintaxe-text">
-                        Lorem ipsum dolor sit amet.
-                    </p>
-                </div>
-                <div class="command-author">
-                    <a href="">
-                        <i class="fas fa-user"></i>  Nome do Autor
-                    </a>
-                </div>
-                <div class="command-date">
-                    <i class="fas fa-calendar-alt"> </i>  01/01/2001
-                </div>
+            
+            {% include 'commands/partial/command.html' %}
+            {% include 'commands/partial/command.html' %}
+            {% include 'commands/partial/command.html' %}
 
-                <footer class="command-footer">
-                    <a class="command-read-more button button-dark button-full-width" href="/commands/3/">
-                        <i class="fas fa-eye"></i>
-                        <span>ver mais...</span>
-                    </a>
-                </footer>
-
-                
-
-
-
-            </div>
         </div>
-
+        
     </main>
+    {% include 'commands/partial/footer.html' %}
 
 </body>
 </html>
