@@ -1,8 +1,11 @@
 from django.urls import path
 
-from commands.views import home
+#from commands.views import home
+
+from . import views
 
 
 urlpatterns = [
-    path('', home),
+    path('', views.home),
+    path('commands/<int:id>/', views.command),
 ]

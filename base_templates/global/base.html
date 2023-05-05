@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    {% include 'commands/partial/head.html' %}
+    <title> {% block title %} {% endblock title %} Dicionário de Comandos</title> 
+</head>
+
+<body>
+    {% include 'commands/partial/header.html' %}
+    {% include 'commands/partial/search.html' %}
+
+    
+
+    <main class="main-content-container">
+        {% block content %}
+            
+        {% endblock content %}
+    </main>
+    {% include 'commands/partial/footer.html' %}
+
+</body>
+</html>

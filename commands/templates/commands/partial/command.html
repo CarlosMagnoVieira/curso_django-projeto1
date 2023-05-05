@@ -1,27 +1,27 @@
 <div class="command command-list-item">
     <div class="command-cover">
-        <img src="https://via.placeholder.com/1280x720.png/269fe6" alt="Temporário">
+        <img src={{command.cover.url}} alt="Temporário">
     </div>
     <div class="command-title-container">
-        <h2 class="command-title"> Linguagem: <a href="">(nome da linguagem de programação)</a></h2>
-        <h2 class="command-title"> Comando: <a href="" >(nome do comando)</a></h2>
+        <h2 class="command-title"> Linguagem: <a href="">{{command.language}}</a></h2>
+        <h2 class="command-title"> Comando: <a href="" >{{command.command_name}}</a></h2>
     </div>
     <div class="command-definition-container">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est aliquam deleniti ex, iure incidunt rem blanditiis laudantium quod nobis soluta qui vero corporis amet excepturi placeat consequuntur quia tenetur animi.</p>
+        <p>{{command.description}}</p>
     </div>
     <div class="command-sintaxe-container">
         <h3> <i class="fas fa-code"> </i> Sintaxe:</h3> 
         <p class="command-sintaxe-text">
-            Lorem ipsum dolor sit amet.
+            {{command.sintaxe}}
         </p>
     </div>
     <div class="command-author">
         <a href="">
-            <i class="fas fa-user"></i>  Nome do Autor
+            <i class="fas fa-user"></i>  {{command.author.first_name}} {{command.author.last_name}}
         </a>
     </div>
     <div class="command-date">
-        <i class="fas fa-calendar-alt"> </i>  01/01/2001
+        <i class="fas fa-calendar-alt"> </i>  {{command.created_at|date:"d/m/Y"}} às {{ command.created_at|date:"H:i"}}
     </div>
 
     <footer class="command-footer">

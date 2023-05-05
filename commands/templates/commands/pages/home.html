@@ -1,23 +1,13 @@
-{% include 'commands/partial/head.html' %}
+{% extends 'global/base.html' %}
 
-<body>
-    {% include 'commands/partial/header.html' %}
+{% block title %} HOME | {% endblock title %} 
 
-    {% include 'commands/partial/search.html' %}
-
-    
-
-    <main class="main-content-container">
-        <div class="main-content main-content-list container">
-            
-            {% include 'commands/partial/command.html' %}
-            {% include 'commands/partial/command.html' %}
-            {% include 'commands/partial/command.html' %}
-
-        </div>
+{% block content %}
+    <div class="main-content main-content-list container">
         
-    </main>
-    {% include 'commands/partial/footer.html' %}
-
-</body>
-</html>
+        {% for command in commands %}
+            {% include 'commands/partial/command.html' %}
+        {% endfor %}
+        
+    </div>
+{% endblock content %}
