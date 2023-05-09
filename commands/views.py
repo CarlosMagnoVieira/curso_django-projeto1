@@ -8,6 +8,7 @@ def home(request):
 
 def command(request, id):
     return render(request,'commands/pages/command-view.html', context= {
-        'command': make_command()
+        'command': make_command(),
+        'is_detail_page': True,
     })
 
