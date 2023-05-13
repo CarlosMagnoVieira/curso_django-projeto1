@@ -1,3 +1,11 @@
 from django.contrib import admin
+from .models import Language, Commands
 
-# Register your models here.
+class LanguageAdmin(admin.ModelAdmin):
+    ...
+
+@admin.register(Commands)
+class CommandsAdmin(admin.ModelAdmin):
+      ...       
+    
+admin.site.register(Language,LanguageAdmin)

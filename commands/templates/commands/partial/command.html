@@ -1,48 +1,54 @@
 <div class="command command-list-item">
-    <div class="command-cover">
-        <a href="{% url 'commands:command' command.id  %}"> 
-            <img src={{command.cover.url}} alt="Temporário">
-        </a>
-    </div>
+    {% if comando.cover %}
+        <div class="command-cover">
+        <a href="{% url 'commands:command' comando.id%}"> 
+                <img src={{comando.cover.url}} alt="Temporário">
+            </a>
+        </div>
+    {% endif %}
     <div class="command-title-container">
-        <h2 class="command-title"> Linguagem: <a href="">{{command.language}}</a></h2>
-        <h2 class="command-title"> Comando: <a href="{% url 'commands:command' command.id %}" >{{command.command_name}}</a></h2>
+        <h2 class="command-title"> Linguagem: <a href="{% url 'commands:language' comando.language.id %}">{{comando.language.language_name}}</a> {% if comando.language.language_version %} - {{comando.language.language_version}} {% endif %}</h2>
+        <h2 class="command-title"> Comando: <a href="{% url 'commands:command' comando.id %}" >{{comando.command_name}}</a></h2>
     </div>
     <div class="command-definition-container">
-        <p>{{command.description}}</p>
+        <p>{{comando.description}}</p>
     </div>
     <div class="command-sintaxe-container">
         <h3> <i class="fas fa-code"> </i> Sintaxe:</h3> 
         <p class="command-sintaxe-text">
-            {{command.sintaxe}}
+            {{comando.sintaxe}}
         </p>
     </div>
 
     {%if is_detail_page is True %}
         <div class="command-specifications-container">    
             <h3> <i class="fas fa-laptop-code"> </i> &nbsp &nbsp &nbsp Especificações:</h3><br>      
-            <p>{{command.specifications|linebreaksbr}} </p>
-            <p>{{command.specifications|linebreaksbr}} </p>
-            <p>{{command.specifications|linebreaksbr}} </p>
+            <p>{{comando.specifications|linebreaksbr}} </p>
+            
             <br>
             <h3> <i class="fas fa-book"> </i> &nbsp &nbsp &nbsp Fontes:</h3><br>
-            <p> {{command.sources}}</p>
+            <p> {{comando.fonte}}</p>
         </div>
     
     {% endif %}
 
     <div class="command-author">
         <a href="">
-            <i class="fas fa-user"></i>  {{command.author.first_name}} {{command.author.last_name}}
+            <i class="fas fa-user"></i>
+            {% if comando.author.first_name %}
+                {{ comando.author.first_name }} {{ comando.author.last_name }}
+            {% else %}
+                {{ comando.author.username }}
+            {% endif %}
         </a>
     </div>
     <div class="command-date">
-        <i class="fas fa-calendar-alt"> </i>  {{command.created_at|date:"d/m/Y"}} às {{ command.created_at|date:"H:i"}}
+        <i class="fas fa-calendar-alt"> </i>  {{comando.created_at|date:"d/m/Y"}} às {{ comando.created_at|date:"H:i"}}
     </div>
 
     {%if is_detail_page is not True %}
         <footer class="command-footer">
-            <a class="command-read-more button button-dark button-full-width" href="{% url 'commands:command' command.id %}">
+            <a class="command-read-more button button-dark button-full-width" href="{% url 'commands:command' comando.id %}">
                 <i class="fas fa-eye"></i>
                 <span>ver mais...</span>
             </a>
