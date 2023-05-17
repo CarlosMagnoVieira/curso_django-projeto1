@@ -1,11 +1,10 @@
 {% extends 'global/base.html' %}
         
-{% block title %} ALTERAR |  {% endblock title %}
+{% block title %} {{comando.command_name}}-{{comando.language.language_name}} |  {% endblock title %}
 
 {% block content %}
     <div class="main-content main-content-detail container">
-        
-        {% include 'commands/partial/command.html' %}
-        
+        {% include 'commands/partial/command.html' %}         
     </div>
 {% endblock content %}
+

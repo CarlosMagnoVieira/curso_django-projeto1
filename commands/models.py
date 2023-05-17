@@ -22,7 +22,7 @@ class Commands(models.Model):
     updated_at = models.DateTimeField(auto_now = True)
     is_published = models.BooleanField(default = False)
     cover = models.ImageField(upload_to ='commands/cover/%Y/%m/%d/',blank=True,default='')
-    language = models.ForeignKey(Language,on_delete=models.SET_NULL, null=True)
+    language = models.ForeignKey(Language,on_delete=models.SET_NULL, null=True,)
     author = models.ForeignKey(User,on_delete=models.SET_NULL, null=True)
     fonte= models.CharField(max_length=150)
 

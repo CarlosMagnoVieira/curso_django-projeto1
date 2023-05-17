@@ -23,25 +23,34 @@
     {%if is_detail_page is True %}
         <div class="command-specifications-container">    
             <h3> <i class="fas fa-laptop-code"> </i> &nbsp &nbsp &nbsp Especificações:</h3><br>      
-            <p>{{comando.specifications|linebreaksbr}} </p>
-            
+            {% if comando.specifications_is_html is True %}
+                {{comando.specifications|safe}}
+            {% else %}
+                <p>{{comando.specifications|linebreaksbr}} </p>
+            {% endif %}
             <br>
             <h3> <i class="fas fa-book"> </i> &nbsp &nbsp &nbsp Fontes:</h3><br>
             <p> {{comando.fonte}}</p>
         </div>
     
     {% endif %}
-
-    <div class="command-author">
-        <a href="">
-            <i class="fas fa-user"></i>
-            {% if comando.author.first_name %}
-                {{ comando.author.first_name }} {{ comando.author.last_name }}
-            {% else %}
-                {{ comando.author.username }}
-            {% endif %}
-        </a>
-    </div>
+    {% if comando.author is not none %}
+        <div class="command-author">
+            <a href="">
+                <i class="fas fa-user"></i>
+                {% if comando.author.first_name %}
+                    {{ comando.author.first_name }} {{ comando.author.last_name }}
+                {% else %}
+                    {{ comando.author.username }}
+                {% endif %}
+            </a>
+        </div>
+    {% else %}
+        <div class="command-author">
+            <i class="fas fa-user"></i> Desconhecido
+        </div>
+    {% endif %}
+    
     <div class="command-date">
         <i class="fas fa-calendar-alt"> </i>  {{comando.created_at|date:"d/m/Y"}} às {{ comando.created_at|date:"H:i"}}
     </div>
@@ -54,11 +63,5 @@
             </a>
         </footer>
     {% endif %}
-
-    
-
-    
-
-
-
 </div>
+

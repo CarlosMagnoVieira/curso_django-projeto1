@@ -1,6 +1,6 @@
 {% extends 'global/base.html' %}
 
-{% block title %} HOME | {% endblock title %} 
+{% block title %} {{language_name}} | {% endblock title %} 
 
 {% block content %}
     <div class="main-content main-content-list container">
@@ -9,8 +9,8 @@
             {% include 'commands/partial/command.html' %}
         {% empty %}
             <div class= "center m-x m-y">
-                <h2> Commands not found! </h2>
-            </div>            
+                <h2> Programming language not found!!! </h2>
+            </div>
         {% endfor %}
         
     </div>
