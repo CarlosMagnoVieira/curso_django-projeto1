@@ -1,3 +1,4 @@
+from django.http.response import Http404
 from django.shortcuts import get_object_or_404, render
 from utils.commands.factory import make_command
 
@@ -35,3 +36,15 @@ def language(request, language_id):
         return render(request, 'commands/pages/language.html', context={
             'language_name': 'Not found',
         })
+
+
+def search(request):
+    search_term = request.GET.get('q')
+    if not search_term:
+        raise Http404()
+
+    commands_search = Commands.objects.filter(
+        is_published=True).order_by('-id')
+    return render(request, 'commands/pages/search.html', context={
+        'commands': commands_search
+    })

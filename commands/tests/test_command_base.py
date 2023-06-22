@@ -4,9 +4,9 @@ from django.test import TestCase
 
 class CommandTestBase(TestCase):
     def setUp(self) -> None:
-     #       language = self.make_language()
-     #       author = self.make_author()
-     #   self.make_command(self.make_language(), self.make_author())
+        #       language = self.make_language()
+        #       author = self.make_author()
+        #   self.make_command()
 
         return super().setUp()
 
@@ -15,7 +15,7 @@ class CommandTestBase(TestCase):
                       language_version='2.0'):
         return Language.objects.create(
             language_name=language_name,
-            language_version=language_version
+            language_version=language_version,
         )
 
     def make_author(self,
@@ -34,8 +34,8 @@ class CommandTestBase(TestCase):
         )
 
     def make_command(self,
-                     language,
-                     author,
+                     language_data=None,
+                     author_data=None,
                      command_name='Algum Comando',
                      description='Comando que faz alguma coisa bla blá blá',
                      slag='algum-comando',
@@ -46,9 +46,14 @@ class CommandTestBase(TestCase):
                      fonte='as das das fifajie'
                      ):
 
+        if language_data is None:
+            language_data = {}
+        if author_data is None:
+            author_data = {}
+
         return Commands.objects.create(
-            language=language,
-            author=author,
+            language=self.make_language(**language_data),
+            author=self.make_author(**author_data),
             command_name=command_name,
             description=description,
             slag=slag,

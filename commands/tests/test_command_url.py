@@ -15,3 +15,7 @@ class CommandURLTest(TestCase):
     def test_command_detail_url_is_correct(self):
         url = reverse('commands:command', kwargs={'id': 1})
         self.assertEqual(url, '/commands/1/')
+
+    def test_command_search_url_is_correct(self):
+        url = reverse('commands:search')
+        self.assertEqual(url, '/commands/search/')
