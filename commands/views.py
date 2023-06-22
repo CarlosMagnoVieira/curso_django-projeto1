@@ -39,12 +39,13 @@ def language(request, language_id):
 
 
 def search(request):
-    search_term = request.GET.get('q')
+    search_term = request.GET.get('q', '').strip()
     if not search_term:
         raise Http404()
 
-    commands_search = Commands.objects.filter(
-        is_published=True).order_by('-id')
+    # commands_search = Commands.objects.filter(
+    #    is_published=True).order_by('-id')
     return render(request, 'commands/pages/search.html', context={
-        'commands': commands_search
+        'search_term': search_term,
+        'page_title': f'Search for "{search_term}" |',
     })

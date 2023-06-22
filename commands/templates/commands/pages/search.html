@@ -1,6 +1,6 @@
 {% extends 'global/base.html' %}
 
-{% block title %} SEARCH | {% endblock title %} 
+{% block title %} {{page_title}} {% endblock title %} 
 
 {% block content %}
     <div class="main-content main-content-list container">
@@ -9,7 +9,7 @@
             {% include 'commands/partial/command.html' %}
         {% empty %}
             <div class= "center m-x m-y">
-                <h2> Commands not found! </h2>
+                <h2> Term "{{search_term}}" not found! </h2>
             </div>            
         {% endfor %}
         

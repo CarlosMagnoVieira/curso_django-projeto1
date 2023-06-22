@@ -60,7 +60,6 @@ class CommandViewsTest(CommandTestBase):
 
 # tests command language------------------------------------------------------------------------------------------------
 
-
     def test_command_language_view_function_is_correct(self):
         view = resolve(reverse('commands:language', kwargs={'language_id': 1}))
         self.assertIs(view.func, views.language)
@@ -119,6 +118,7 @@ class CommandViewsTest(CommandTestBase):
 
 # tests command detail----------------------------------------------------------------------------------------
 
+
     def test_command_detail_view_function_is_correct(self):
         view = resolve(reverse('commands:command', kwargs={'id': 1}))
         self.assertIs(view.func, views.command)
@@ -174,3 +174,11 @@ class CommandViewsTest(CommandTestBase):
         response = self.client.get(
             reverse('commands:search'))
         self.assertEqual(response.status_code, 404)
+
+    def test_command_search_term_is_on_page_title_and_escaped(self):
+        response = self.client.get(
+            reverse('commands:search') + '?q=<Teste>')
+        self.assertIn(
+            'Search for &quot;&lt;Teste&gt;&quot;',
+            response.content.decode('utf-8')
+        )
